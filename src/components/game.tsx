@@ -7,10 +7,11 @@ export function Grid({ board }: { board: Board }) {
 
   return (
     <div
-      className={`grid  grid-cols-${boardLength[difficulty]} gap-3 rounded-2xl border border-[#141414] bg-[#020202] p-4 sm:gap-4`}
+      className="grid gap-3 rounded-2xl border border-[#141414] bg-[#020202] p-4 sm:gap-4"
       style={{
         boxShadow:
           "0px 0px 0px 1px rgba(255, 255, 255, 0.05), 0px -40px 180px -20px rgba(74, 83, 235, 0.3)",
+        gridTemplateColumns: `repeat(${boardLength[difficulty]}, minmax(0, 1fr))`,
       }}
     >
       {board.map((row, rowIndex) =>

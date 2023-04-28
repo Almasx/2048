@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+import { api } from "~/utils/api";
 import { difficultyAtom } from "~/pages";
 import { useAtomValue } from "jotai";
 
@@ -11,7 +12,7 @@ export type Direction = 0 | 1 | 2 | 3;
 
 export const boardLength = { hard: 3, medium: 4, easy: 5 };
 
-export function useGameState() {
+export function useGameState(onGameOver: (score: number) => void) {
   const [board, setBoard] = useState<Board>([]);
   const [score, setScore] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
@@ -48,33 +49,37 @@ export function useGameState() {
     setScore(0);
   }, [addNewTile, difficulty]);
 
-  const checkGameOver = useCallback((board: Board) => {
-    const canMove = (board: Board) => {
-      for (let row = 0; row < board.length; row++) {
-        for (let col = 0; col < board[row]!.length; col++) {
-          if (board[row]?.[col] === 0) {
-            return true;
-          }
+  const checkGameOver = useCallback(
+    (board: Board) => {
+      const canMove = (board: Board) => {
+        for (let row = 0; row < board.length; row++) {
+          for (let col = 0; col < board[row]!.length; col++) {
+            if (board[row]?.[col] === 0) {
+              return true;
+            }
 
-          if (
-            (row < board.length - 1 &&
-              board[row]?.[col] === board[row + 1]?.[col]) ||
-            (col < board[row]!.length - 1 &&
-              board[row]?.[col] === board[row]?.[col + 1])
-          ) {
-            return true;
+            if (
+              (row < board.length - 1 &&
+                board[row]?.[col] === board[row + 1]?.[col]) ||
+              (col < board[row]!.length - 1 &&
+                board[row]?.[col] === board[row]?.[col + 1])
+            ) {
+              return true;
+            }
           }
         }
-      }
-      return false;
-    };
+        return false;
+      };
 
-    if (!canMove(board)) {
-      setGameOver(true);
-    } else {
-      setGameOver(false);
-    }
-  }, []);
+      if (!canMove(board)) {
+        onGameOver(score);
+        setGameOver(true);
+      } else {
+        setGameOver(false);
+      }
+    },
+    [score]
+  );
 
   const moveBoard = useCallback(
     (direction: Direction) => {
@@ -132,7 +137,6 @@ export function useGameState() {
 
   useEffect(() => {
     initializeBoard();
-    console.log("lol");
   }, [initializeBoard]);
 
   return {

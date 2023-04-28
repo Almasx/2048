@@ -17,8 +17,10 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.56.0
   '@typescript-eslint/parser': ^5.56.0
   autoprefixer: ^10.4.14
+  clsx: ^1.2.1
   eslint: ^8.36.0
   eslint-config-next: ^13.2.4
+  jotai: ^2.0.4
   next: ^13.2.4
   next-auth: ^4.21.0
   postcss: ^8.4.21
@@ -41,6 +43,8 @@ dependencies:
   '@trpc/next': 10.21.2_7mmynaavaflz36kvki6fifonqa
   '@trpc/react-query': 10.21.2_yis4ksflqju3lworf2usbxdniy
   '@trpc/server': 10.21.2
+  clsx: 1.2.1
+  jotai: 2.0.4_react@18.2.0
   next: 13.3.1_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.22.1_ivamjty3az7dj3hhadhjniqtwe
   react: 18.2.0
@@ -847,6 +851,11 @@ packages:
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/2.0.1:
@@ -1880,6 +1889,18 @@ packages:
 
   /jose/4.14.3:
     resolution: {integrity: sha512-YPM9Q+dmsna4CGWNn5+oHFsuXJdxvKAOVoNjpe2nje3odSoX5Xz4s71rP50vM8uUKJyQtMnEGPmbVCVR+G4W5g==}
+    dev: false
+
+  /jotai/2.0.4_react@18.2.0:
+    resolution: {integrity: sha512-XkR1Jtm4a2iKV/7fdB3rNHjJz8FkkDMVczqiAok7lt8W4F69l/ZQkPGWSEV+hJOJXRn27k6XYKOoKEQIwBuAMA==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /js-sdsl/4.4.0:
