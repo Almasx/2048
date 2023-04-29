@@ -18,7 +18,7 @@ export function Grid({ board }: { board: Board }) {
         row.map((value, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
-            className="h-20 w-20 overflow-clip rounded-3xl border border-[#141414] bg-[#060606] duration-150 hover:border-[#1f1f1f] 
+            className="h-16 w-16 overflow-clip rounded-3xl border border-[#141414] bg-[#060606] duration-150 hover:border-[#1f1f1f] 
                          hover:bg-[#0f0f0f] sm:h-24 sm:w-24"
           >
             <Tile value={value} />

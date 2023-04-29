@@ -32,8 +32,8 @@ const Home: NextPage = () => {
   useMove((direction) => moveBoard(direction));
 
   return (
-    <div className="flex min-h-screen bg-[#020202] py-10 text-white">
-      <div className="mx-auto flex flex-col ">
+    <div className="flex min-h-screen flex-col bg-[#020202] pb-5 pt-10 text-white">
+      <div className="mx-auto mb-14 flex flex-col">
         <h1 className="mb-8 text-center text-8xl font-bold text-[#4A54EB]/30 duration-150 hover:text-[#4A54EB]/60">
           {score || 2048}
         </h1>
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="col fixed bottom-5 left-5 flex flex-col gap-3 text-white/30">
+      <div className="bottom-5 left-5 mx-auto flex w-[325px] flex-col gap-3 text-white/30 sm:w-[464px] lg:fixed lg:w-auto lg:p-0">
         <div className="flex gap-3">
           <Badge
             onClick={sessionData ? () => void signOut() : () => void signIn()}
@@ -78,7 +78,7 @@ const Home: NextPage = () => {
             </Badge>
           )}
         </div>
-        <div className="w-96 rounded-2xl border border-[#1c1c1c] p-3 font-light tracking-wide  duration-300 hover:text-white/60">
+        <div className="w-[325px] rounded-2xl border border-[#1c1c1c] p-3 font-light tracking-wide duration-300  hover:text-white/60 sm:w-96">
           ✨ Соединайте цифры чтобы получить 2048 <br />
           🕹️ Используйте клавишу чтобы двигать цифры
         </div>
