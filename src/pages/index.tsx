@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   const [difficulty, setDifficulty] = useAtom(difficultyAtom);
   const [bot, setBot] = useAtom(botAtom);
   useBot(moveBoard);
-  useMove(moveBoard);
+  useMove((direction) => moveBoard(direction));
 
   return (
     <div className="flex min-h-screen bg-[#020202] py-10 text-white">
