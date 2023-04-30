@@ -104,7 +104,7 @@ const Home: NextPage = () => {
         </div>
         <div className="flex gap-3">
           <ThemeSwitch />
-          <Link href="/ " className="ml-auto">
+          <Link href="/leaderboard " className="ml-auto">
             <Badge>🏆 LeaderBoard</Badge>
           </Link>
           <Badge
