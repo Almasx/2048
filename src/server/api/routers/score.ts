@@ -1,4 +1,8 @@
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 
 import { z } from "zod";
 
@@ -19,5 +23,9 @@ export const scoreRouter = createTRPCRouter({
 
   get: protectedProcedure.query(({ ctx }) =>
     ctx.prisma.user.findUnique({ where: { id: ctx.session.user.id } })
+  ),
+
+  all: publicProcedure.query(({ ctx }) =>
+    ctx.prisma.user.findMany({ orderBy: { bestScore: "desc" } })
   ),
 });

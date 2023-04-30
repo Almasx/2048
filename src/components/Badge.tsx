@@ -13,10 +13,10 @@ const Badge = ({ children, active, onClick, className = "" }: BadgeProps) => {
     <button
       className={clsx(
         className,
-        "rounded-xl border px-3 py-1 outline-none duration-150 ease-in-out hover:bg-white hover:text-black",
+        "rounded-xl border px-3 py-1 outline-none duration-150 ease-in-out hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark",
         active
-          ? "flex flex-row items-center border-transparent bg-white text-black "
-          : " border-[#1c1c1c]"
+          ? "flex flex-row items-center border-transparent bg-dark text-white dark:bg-light dark:text-black "
+          : "border-gray-light dark:border-gray-dark-secondary "
       )}
       onClick={(event) => {
         onClick && onClick(event);
