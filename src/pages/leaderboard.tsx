@@ -10,7 +10,7 @@ export const getServerSideProps = async () => {
   const helpers = createServerSideHelpers({
     router: appRouter,
     ctx: createInnerTRPCContext({ session: null }),
-    transformer: superjson, // optional - adds superjson serialization
+    transformer: superjson,
   });
 
   const leaders = await helpers.score.all.fetch();
