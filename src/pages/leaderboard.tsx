@@ -1,9 +1,5 @@
-import {
-  GetServerSidePropsContext,
-  type InferGetServerSidePropsType,
-} from "next";
+import { type InferGetServerSidePropsType } from "next";
 import { appRouter } from "~/server/api/root";
-import {} from "~/server/api/trpc";
 import { createServerSideHelpers } from "@trpc/react-query/server";
 import { createInnerTRPCContext } from "~/server/api/trpc";
 import superjson from "superjson";
